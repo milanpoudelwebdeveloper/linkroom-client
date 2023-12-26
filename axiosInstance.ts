@@ -1,8 +1,8 @@
 import axios, { AxiosResponse } from "axios";
-axios.defaults.baseURL = process.env.BASE_API_URL;
 
 export const createAxiosInstance = (contentType: string) => {
   const instance = axios.create({
+    baseURL: "http://localhost:5000",
     headers: {
       "Content-Type": contentType,
       Accept: "application/json",
@@ -20,7 +20,6 @@ export const createAxiosInstance = (contentType: string) => {
 
       if (notAllowedResponse && !originalRequest.sent) {
         originalRequest.sent = true;
-        window.location.href = "/";
       }
 
       return Promise.reject(error);

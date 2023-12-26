@@ -144,6 +144,7 @@ export default function Page() {
                 <button
                   className="w-full py-3 text-center text-white bg-purple-500"
                   disabled={isLoading}
+                  type="submit"
                 >
                   Register Now
                 </button>
