@@ -1,7 +1,7 @@
 import * as yup from "yup";
 
 export const firstNameSchema = yup.object().shape({
-  fullname: yup
+  firstName: yup
     .string()
     .trim()
     .required("First name is required")
@@ -12,7 +12,7 @@ export const firstNameSchema = yup.object().shape({
 });
 
 export const lastNameSchema = yup.object().shape({
-  fullname: yup
+  lastName: yup
     .string()
     .trim()
     .required("Last name is required")
@@ -85,6 +85,8 @@ export const confirmPasswordSchema = yup.object().shape({
 });
 
 export const signUpSchema = yup.object().shape({
+  ...firstNameSchema.fields,
+  ...lastNameSchema.fields,
   ...emailSchema.fields,
   ...usernameSchema.fields,
   ...passwordSchema.fields,

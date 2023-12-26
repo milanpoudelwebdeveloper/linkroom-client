@@ -3,15 +3,11 @@ import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { cn } from "@/lib/utils";
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from "@tanstack/react-query";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import QueryProvider from "@/components/providers/queryClientProvider";
 
 const font = Open_Sans({ subsets: ["latin"] });
-
-const queryClient = new QueryClient();
 
 export const metadata: Metadata = {
   title: "Link room",
@@ -26,7 +22,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn(font.className, "bg-white dark:bg-[#313338]")}>
-        <QueryClientProvider client={queryClient}>
+        <ToastContainer />
+        <QueryProvider>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
@@ -35,7 +32,7 @@ export default function RootLayout({
           >
             {children}
           </ThemeProvider>
-        </QueryClientProvider>
+        </QueryProvider>
       </body>
     </html>
   );
