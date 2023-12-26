@@ -1,11 +1,7 @@
-import { ModeToggle } from "@/components/mode-toggle";
-import { UserButton } from "@clerk/nextjs";
+"use client";
 
-export default function Home() {
-  return (
-    <div>
-      <UserButton afterSignOutUrl="/sign-in" />
-      <ModeToggle />
-    </div>
-  );
-}
+const Home = () => {
+  return <div>welcome</div>;
+};
+
+export default Home;
