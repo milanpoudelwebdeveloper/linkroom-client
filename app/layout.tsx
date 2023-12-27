@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import QueryProvider from "@/components/providers/queryClientProvider";
+import { Toaster } from "@/components/ui/toaster";
 
 const font = Open_Sans({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={cn(font.className, "bg-white dark:bg-[#313338]")}>
         <ToastContainer />
+        <Toaster />
         <QueryProvider>
           <ThemeProvider
             attribute="class"
